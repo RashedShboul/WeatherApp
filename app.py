@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from weather_routes import weather
 import os
 
-load_dotenv('.env/config.env')
+load_dotenv('.env')
 
 app = Flask(__name__)
 
