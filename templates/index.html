@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>weather app</h2>
+        <p>The main reason to create this app is to learn utilizing APIs</p>
+        <form action="{{ url_for('weather.get_weather') }}" method="post">
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="country" placeholder="Country">
+            <input type="text" name="state_code" placeholder="State Code">
+            <input type="submit" value="Get Weather">
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="flash-message {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
